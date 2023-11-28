@@ -11,12 +11,82 @@
     <form action="">
         <fieldset>
             <legend>폼 타이틀</legend>
-            ID <input type="text"> <br /><br />
-            <label for="name">이름</label> <input type="text" id="name" name="name">
+            
 
+            <label for="name">이름</label>
+            <input type="text" id="name" name="name" value="홍길동" readonly required />
+            <br />
+
+            I&#8209;&#8209;&#8209;D
+            <input
+                type="text" title="ID" size="50"
+                minlength="4" maxlength="12"
+                placeholder="아이디를 입력하세요. (4~12글자)"
+                required autocomplete="on"
+            /> <br />
+            <label for="pw">비밀번호</label>
+            <input type="password" id="pw" name="pw" required>
+            <!-- input과 label을 꼭 연결해주어야 합니다. for와 id 연결=글씨를 클릭해도 창에 입력되도록 함. -->
+            <br /><br />
+
+            라디오
+            <input type="radio" name="group_pr-l" id="html">
+            <label for="html">HTML</label>
+            <input type="radio" name="group_pr-l" id="css">
+            <label for="css">CSS</label>
+            <input type="radio" name="group_pr-l" id="js">
+            <label for="js">Java Script</label>
+            <br />
+
+            체크박스
+            <input type="checkbox" name="consent1" id="consent1">
+            <label for="consent1">동의 1</label>
+            <input type="checkbox" name="consent2" id="consent2">
+            <label for="consent2">동의 2</label>
+            <input type="checkbox" name="consent3" id="consent3">
+            <label for="consent3">동의 3</label>
+            <br /><br />
+
+            <label for="email">이메일</label>
+            <input type="email" name="email" id="email">
+            <br /><br />
+
+            <label for="file">첨부파일</label>
+            <input type="file" name="file" id="file">
+            <br /><br />
+
+            <label for="number">숫자</label>
+            <input type="number" name="number" id="number" disabled>
+            <br />
+
+            <label for="season">좋아하는 계절을 선택해보세요</label>
+            <select name="season" id="season">
+                <option value="봄">봄</option>
+                <option value="여름">여름</option>
+                <option value="가을">가을</option>
+                <option value="겨울" selected>겨울</option>
+            </select>
+            <br /><br />
+
+            <label for="text">글쓰기</label>
+            <textarea name="text" id="text" cols="30" rows="10" placeholder="300자까지 작성가능"></textarea>
+            <br />
+
+            <!-- 버튼은 기능이 없음. submit은 제출 기능. -->
+            <!-- 
+                기능이 없는 버튼
+                a(하이퍼링크) : 페이지 전환용
+                input:button, button : 동적처리
+            -->
+            <input type="button" value="input type button" />
+            <button><b>button</b></button>
+            <!-- button 안에는 다양한 태그를 넣는 것이 가능. 종료태그가 있기 때문에! -->
+            <br />
+            <input type="submit" value="내용전송" />
+            <input type="reset" value="가입취소" />
         </fieldset>
     </form>
     
-    <h2>Form Advanced</h2>
+    <h2>Form </h2>
 </body>
 </html>
