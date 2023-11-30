@@ -12,7 +12,7 @@
 
 p.desc2{color: #000;}
 
-#main{width: 500px; height: 300px;background-color: #d9d9d9;;}
+#main{width: 500px;background-color: #d9d9d9;;}
 .header.dark{width: 100%; background-color: #666;}
 .header.light{width: 100%; background-color: #fff;}
 
@@ -37,3 +37,30 @@ p.desc2{color: #000;}
 /* Q. li, a 모두 색 바꾸려면 따로 지정? */
 .bbs li:first-child{background-color: pink;}
 .bbs li:first-child a{color:red}
+.bbs li:last-child{background-color: yellow;}
+.bbs li:last-child a{color: brown;}
+.bbs li:nth-child(2){background-color: #fff;}
+.bbs li:nth-child(2) a{color: #888;}
+
+.goto li::before{content: '>';}
+.goto li::after{content: '<';}
+.goto li a{color: tomato;}
+.goto li a::before{
+    display: block ;
+    content: "";
+    width: 50px;
+    height: 50px;
+    background: url(./img/mobile_212852414260.png);
+    background-size: 100%;
+}
+.goto li a::after{
+    display: block ;
+    content: "";
+    width: 50px;
+    height: 50px;
+    background: url(./img/mobile_212852414260.png);
+    background-size: 100%;
+}
+/* before, after의 ><는 링크가 걸리지 않지만 +*는 링크가 걸림. */
+/* 이거 연결가능할까? */
+
