@@ -69,7 +69,11 @@ p.desc2{color: #000;}
     font-family: 'Line Awesome Free';
     font-weight: 900;
 }
-
+.icon li:nth-child(2) a::after{
+    content: "\f669""====";
+    font-family: 'Line Awesome Free';
+    font-weight: 900;
+}
 .icon li:nth-child(4)::before{
     content: "\f09b";
     font-family: 'Line Awesome Brands';
@@ -83,3 +87,5 @@ p.desc2{color: #000;}
     font-family: 'Line Awesome Brands';
 }
 svg{display: inline; width: 16px;height: 16px;}
+.goto a{color: #000 !important;}
+/* !important는 세미콜론 안쪽에 넣어야 함. */
