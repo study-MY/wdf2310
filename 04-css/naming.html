@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Structure or naming conventions</title>
+</head>
+<body>
+    <h1>네이밍 표기법</h1>
+
+    <h2>BEM 표기법</h2>
+    <!-- block -->
+    <div class="slide">
+        <!-- element : block__element -->
+        <div class="slide__item">slide1</div>
+        <!-- block__element--modifier -->
+        <div class="slide__item slide__item--active">slide2</div>
+        <div class="slide__item">slide3</div>
+    </div>
+
+    <!-- form의 유형도 구분해주어야 함. -->
+    <form action="" class="form form--login">
+        <!-- 로그인 폼이라는 상태 표기 -->
+        <input type="text" class="form__text form" name="" id="">
+        <input type="submit" class="form__submit form__submit--disabled" value="전송" disabled />
+    </form>
+</body>
+</html>
