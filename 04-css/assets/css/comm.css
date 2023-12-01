@@ -1,3 +1,5 @@
+@import url(../fonts/font.css);
+@import url(reset.css);
 *{color : #f0f0f0;}
 
 .desc2{font-size: 18px;
@@ -89,3 +91,41 @@ p.desc2{color: #000;}
 svg{display: inline; width: 16px;height: 16px;}
 .goto a{color: #000 !important;}
 /* !important는 세미콜론 안쪽에 넣어야 함. */
+
+h1, h2, div{color: #000;}
+.font-size1{
+    font-size: 20px;
+}
+.font-size2{
+    font-size: 1.25em;
+    /* 12px을 기준으로 1.25는 15px */
+    /* 부모를 기준으로 계산 */
+}
+.font-size3{
+    font-size: 1.666em;
+}
+.font-size4{
+    font-size: 1.666em;
+}
+.font-size5{
+    font-size: 1.666rem;
+}
+.font-size6{
+    font-size: 1.666rem;
+}
+.font-size7{
+    font-size: 10vw;
+}
+.font-f1{
+    font-family: 'Sofia', cursive;
+}
+.font-f2{
+    font-family: 'Trirong', serif;
+}
+.font-f3{
+    font-size: 1.4rem;
+    font-family: 'Shizuru';
+}
+.font-f4{
+    font-family: 'LINESeedKR-Bd' ;
+}
