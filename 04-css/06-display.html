@@ -36,8 +36,27 @@
             background-color: bisque;
             border: 1px solid #000;
         }
+        .inline::after{
+            display: block;
+            content: "";
+            width: 20px;
+            height: 20px;
+            background-color: saddlebrown;
+        }
     </style>
+
     <h2>inline-block (가로세로값 가지는)</h2>
+    <div class="inline-block">goto</div>Goto
+    <style>
+        .inline-block{
+            display: inline-block;
+            vertical-align: middle;
+            /* 버티컬 얼라인은 인라인으로는 적용이 안됨. */
+            width: 100px;height: 100px;
+            background-color: tomato;
+        }
+        
+    </style>
     <h2>**flex**(layout)</h2>
 </body>
 </html>
