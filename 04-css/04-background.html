@@ -29,21 +29,94 @@
     <div class="bg2"></div>
     <style>
         .bg2{
-            height: 300px;
-            background-image: url('/img/map.jpg');
-            /* 이미지 왼쪽 위 정렬되어 있는건 어떻게 센터로 바꿔? */
+            height: 440px;
+            /* background-image: url('/img/map.jpg');
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            background-attachment: fixed; */
+            background: rgba(50, 167, 245, 0.6) url('/img/map.jpg') no-repeat fixed center center ;
         }
     </style>
 
     <div class="bg3"></div>
     <style>
         .bg3{
-            width: 95px;height: 95px;
-            background-color: darkblue;
-            background-image: url('./img/w.jpg');
-            background-repeat: no-repeat;
+            width:100% ;height:300px;
+            background-color:darkblue;
+            background-image:url('./img/w.jpg');
+            background-repeat:no-repeat ;
             background-position: 50% 50%;
         }
     </style>
+
+    <h2>background-size</h2>
+    <div class="bg4"></div>
+    <div class="bg5"></div>
+    <style>
+        .bg4{
+            width: 300px;
+            height: 150px;
+            background-color: yellow;
+            background-image: url(./img/youtube.png);
+            background-repeat: no-repeat;
+            background-position: 0 50%;
+            background-size: contain;
+            /* background-size: 100% auto; = background-size: contain; */
+        }
+
+        .bg5{
+            width: 500px;
+            height: 200px;
+            background: yellowgreen url('./img/map.jpg') no-repeat 0 0 / 300px auto;
+            /* position 값과 size 값은 분리를 위한 슬래쉬(/)를 넣어주어야 함. 그렇지 않으면 인식하지 못함.
+            순서를 바꾸어 이동해도 괜찮은데, 슬래쉬를 포함한 포지션과 사이즈 값을 한 번에 옮겨주어야 함. */
+            /* background-size: auto 100%; = background-size: cover; */
+        }
+    </style>
+    <h2>Image Sprites</h2>
+    <a href="#" class="link home">홈</a>
+    <a href="#" class="link prev">이전</a>
+    <a href="#" class="link next">다음</a>
+    <style>
+        a{text-decoration: none;}
+        .link{
+            display: inline-block;
+            text-indent: -9999px;
+            background-image: url('./img/img_navsprites.gif');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .home{
+            width: 46px;
+            height: 44px;
+            /* background: url('./img/img_navsprites.gif') no-repeat 0 0 / cover; */
+            background-position: 0 0;   
+        }
+        .prev{
+            width: 43px;
+            height: 44px;
+            /* background: url('./img/img_navsprites.gif') no-repeat -47px 0 / cover; */
+            background-position: -47px 0;
+        }
+        .next{
+            width: 43px;
+            height: 44px;
+            /* background: url('./img/img_navsprites.gif') no-repeat -92px 0 / cover; */
+            background-position: -92px;
+        }
+    </style>
+    <div class="webtoon">웹툰</div>
+    <style>
+        .webtoon{
+            display: block;
+            width: 62px;
+            height: 59px;
+            text-indent: -9999px;
+            background: url('./img/sp_main.752c7542.png') no-repeat -462px -434px ;
+        }
+    </style>
+
+
+    <div style="width: 100%; height: 500px;">test</div>
 </body>
 </html>
