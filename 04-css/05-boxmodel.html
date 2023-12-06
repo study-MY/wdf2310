@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Model</title>
+
+</head>
+<body>
+    <h1>Box Model</h1>
+    <div class="box1">content</div>
+    <style>
+        .box1{
+            width: 300px;
+            height: 100px;
+            background-color: yellow;
+            border: 5px solid green;
+            padding-top: 50px;
+            padding-left: 100px;
+            margin-left: 45px;
+        }
+    </style>
+
+    <h2>width(100%)&amp;height(0)</h2>
+    <!-- div : block -->
+    <!-- width 기본 값은 100, height 기본값은 0 -->
+    <div class="box2">block</div>
+    <div class="box2">block</div>
+    <style>
+        .box2{
+            width: 100%;
+            height: 100px;
+            background-color: lightblue;
+        }
+    </style>
+
+    <span class="box3">
+        Inline : Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, quos.
+    </span>
+    <span class="box3">
+        Inline : Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, quos.
+    </span>
+    <span class="box3">
+        Inline : Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, quos.
+    </span>
+
+    <span class="box4">inline-block</span>
+    <span class="box4">inline-block</span>
+    <span class="box4">inline-block</span>
+
+    <style>
+        .box3{
+            width: 100%;
+            height: 50px;
+            background-color: lightblue;
+        }
+        /* 인라인 요소는 width, height를 넣어도 div처럼 설정되지 않음. */
+        .box4{
+            display: inline-block;
+            width: 100px;
+            height: 50px;
+            background-color: skyblue;
+        }
+        /* 가로로 배치되어야 하지만 블락요소처럼 가로세로 값은 가져야 하는 경우, display: inline-block ;
+        그러나 기본적으로 가진 스페이스가 있어서 잘 사용하지는 않음. */
+    </style>
+
+    <h2>max-width</h2>
+    <div class="maxw">max-width</div>
+    <div class="minw">min-width</div>
+    <style>
+        .maxw{
+            max-width: 1280px;
+            max-height: 500px;
+            height: 1000px;
+            margin: 0 auto;
+            background-color: yellow;
+        }
+        .minw{
+            min-width: 320px;
+            min-height: 100vh;
+            /* min-height : mobile main slide image에 좋음! */
+            /* min-width, min-height가 있으면 w,h지정해도 min이 우선! */
+            /* 그럼 스타일 속성마다 우선순위가 있는건가? */
+            background-color: thistle;
+            
+        }
+    </style>
+
+    <h2>border</h2>
+    <div class="border1">border</div>
+    <style>
+        .border1{
+            height: 300px;
+            background: #eee;
+            border-style: dashed;
+            border-width: 5px;
+            border-color: rgb(214, 214, 214, 0.5);
+        }
+    </style>
+    <div class="border2">border</div>
+    <style>
+        .border2{
+            height: 300px;
+            background: #eee;
+            border: 1px solid #d7d7d7;
+            border-radius: 302px;
+            /* border radius를 양쪽이 원형인 사각형으로 만들기 위해 넣을 때는 높이값(height + border top + border bottom)만큼 넣어주면 됨. */
+            
+        }
+    </style>
+
+    <h2>border-radius</h2>
+    <div class="radius"></div>
+    <style>
+        .radius{
+            height: 200px;
+            width: 200px ;
+            border-radius: 50%;
+            background-color: wheat;
+        }
+    </style>
+
+    <h2>padding</h2>
+    <div class="padding">padding</div>
+    <div class="padding">padding ABCDEFGHIJKLMNOPQRSTUVWXYZ</div>
+    <div class="padding">padding</div>
+    <style>
+        /* 
+            유동적인 버튼을 생성하고 싶을 때,
+            display : inline-block으로 변경, width: 100%를 해제
+            
+         */
+        .padding{
+            border: 1px solid rosybrown;
+            background-color: #eee;
+            padding: 20px;
+            /* padding에 %를 넣으면 무엇을 기준으로 %를 측정하는가? */
+            display: inline-block;
+            /* display, float의 차이는? */
+            /* padding을 설정하면 피그마 오토레이아웃처럼 자동으로 div박스 사이즈가 커진다! */
+        }
+    </style>
+
+    <div class="padding2">padding2</div>
+    <style>
+        .padding2{
+            margin-top: 50px;
+            display: inline-block;
+            border: 1px solid goldenrod;
+            padding: 10px 30px 60px 120px;
+        }
+    </style>
+
+    <h2>margin</h2>
+    <div class="margin">margin</div>
+    <div class="margin box">margin</div>
+    <div class="margin">margin</div>
+    <style>
+        .margin{
+            margin: 60px;
+            border:1px solid peachpuff
+        }
+        .box{
+            margin-top: 120px ;
+            border:1px solid peachpuff
+        }
+        
+    </style>
+
+    <div class="margin2">
+        block 요소 가운데 정렬<div class="margin3">가운데정렬</div>
+    </div>
+    <style>
+        .margin2{
+            width: 500px;
+            height: 200px;
+            /* text-align: center ; */
+            margin: auto;
+            border:1px solid olivedrab ;
+            background-color: palegoldenrod;
+        }
+        .margin3{
+            width: 50%;
+            height: 20%;
+            background-color: #fff;
+            text-align: center;
+            margin: 0 auto;
+            
+        }
+    </style>
+
+    <div class="wrap">
+        <header class="header">header</header>
+        <div class="slide">slide</div>
+        <div class="main">main</div>
+        <div class="footer">footer</div>
+    </div>
+    <style>
+        .wrap{
+            width: 1200px;
+            margin: 200px auto;
+            background-color: papayawhip;
+            text-align: center;
+        }
+        .header{
+            height: 100px;
+            padding: 30px;
+            border-bottom: 5px solid salmon;
+            box-sizing: border-box;
+            /* box-sizing : content-box */
+            /* box-sizing: border-box; 는  */
+        }
+        .slide{
+            height: 300px;
+            border : 1px solid red;
+
+        }
+        .main{
+            width: 90%;
+            height: 200px;
+            margin: 20px auto;
+            padding-top: 70px ;
+            box-sizing: border-box;
+            border: 1px solid blue;
+        }
+        .footer{
+            box-sizing: border-box;
+            height: 100px;
+        }
+    </style>
+
+<!-- 100;300;200;100 -->
+
+
+
+
+
+    <div class="space">
+        space
+        <div>wheat, palegreen, goldenrod</div>
+    </div>
+    <style>
+        .space{
+            height: 500px;
+        }
+    </style>
+</body>
+</html>
