@@ -1,0 +1,44 @@
+.wrap{
+    width: 1200px;
+    margin: 0 auto;
+    background-color: aquamarine;
+}
+header{
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: lightskyblue;
+}
+#gnb .depth1{
+    display: flex;
+}
+.depth2{
+    display: none;
+}
+.depth1 > li > a{
+    display: flex;
+    align-items: center;
+    height: 100px;
+    background-color: beige;
+    padding: 0 50px;
+}
+#logo a{
+    display: flex;
+    align-items: center;
+    width: 200px;
+    height: 40px;
+    /* 여기서 패딩 넣으면 그리드가 무너질 수 있음. */
+}
+.slide ul{
+    display: flex;
+    /* height: 300px; */
+}
+.slide ul img{
+    display: block;
+    height: 300px;
+
+}
+
+
+
