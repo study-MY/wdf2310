@@ -4,23 +4,134 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>float</title>
+
+    <style>
+
+
+        .wrap{
+            width: 1280px;
+            margin: 0 auto;
+            background-color: #eee;
+        }
+        #header{
+            /* 1. 부모에게 높이값 지정 : 그러나 이건 헤더라는 규정된 범위 내이기 때문에 가능. 일반적으로는 컨텐츠 길이가 확정되어 있는 것이 아니기 때문에 잘 사용하지 않음. */
+            /* 2. overflow:auto ; */
+            background-color: beige;
+            height: 100px;
+        }
+        #logo{
+            background-color: bisque;
+            float: left;
+        }
+        #gnb{
+            background-color: peachpuff;
+            float: right;
+            /* gnb에 넣는 것이기 때문에 li의 순서가 바뀌지는 않음. */
+        }
+        #gnb li{
+            float: left;
+        }
+        .slide ul{
+            overflow: auto;
+        }
+        .slide li{
+            float: left;
+        }
+        #main::after{
+            content: "";
+            display: block;
+            clear: both;
+            /* 오... 부모에게 넣는 거군요. clear both. */
+            /* 매 회 높이값을 조정하기 위해 박스를 만들 수 없으니, 가상의 박스를 생성하는 것. */
+        }
+        .sec-g{
+            width: 30%;
+            height: 200px;
+            background-color: antiquewhite;
+            float: left;
+            border: 1px solid pink;
+            box-sizing: border-box;
+        }
+        .sec-g + .sec-g{margin-left: 5%;}
+        /* sec-g다음에 sec-g 있는 것에만 넣어줘라. */
+        
+        /* footer */
+        #footer{
+            height: 100px;
+            background-color: darkolivegreen;
+        }
+        
+       .ft-logo{
+        float: left;
+       }
+       .copyright{
+            text-align: center;
+       }
+       .sns{
+        margin-top: -20px;    
+        float: right;
+       }
+    </style>
 </head>
 <body>
     <h1>float</h1>
 
     <h2>float : left</h2>
-    <div class="box">
+    <div class="box1">
         <div class="item">1</div>
         <div class="item">2</div>
         <div class="item">3</div>
-        <style>
-            .item{
-                float: right;
-                width: 100px ;
-                height: 100px;
-                background-color: lightblue;
-            }
-        </style>
     </div>
+    <div class="box2">
+        <div class="item">1</div>
+        <div class="item">2 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum praesentium eaque, voluptatibus molestias est non.</div>
+        <div class="item">3</div>
+    </div>
+    <style>
+        .box1 .item{
+            float: right;
+            width: 100px ;
+            height: 100px;
+            background-color: lightblue;
+        }
+        .box2{
+            clear: both;
+            background-color: pink;
+        }
+    </style>
+    <br /><br /><br />
+
+    <h2>float layout</h2>
+    <div class="wrap">
+        <header id="header">
+            <h1 id="logo">logo</h1>
+            <nav id="gnb">
+                <ul class="depth1">
+                    <li>menu1</li>
+                    <li>menu2</li>
+                    <li>menu3</li>
+                    <li>menu4</li>
+                </ul>
+            </nav>
+        </header>
+        <div class="slide">
+            <ul>
+                <li>slide1</li>
+                <li>slide2</li>
+                <li>slide3</li>
+            </ul>
+        </div>
+        <main id="main">
+            <section class="sec-g">공지사항</section>
+            <section class="sec-g">배너</section>
+            <section class="sec-g">바로가기</section>
+        </main>
+        <footer id="footer">
+            <div class="ft-logo">logo</div>
+            <div class="copyright">copyright</div>
+            <div class="sns">sns</div>
+        </footer>
+    </div>
+
 </body>
 </html>
