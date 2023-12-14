@@ -13,7 +13,7 @@
             .flex-container div{
                 background-color: paleturquoise;
                 font-size: 14px;
-                padding: 0px;
+                padding: 10px;
                 margin: 5px;
             }
         </style>
@@ -213,32 +213,116 @@
             <div>2</div>
             <div>3</div>
         </div>
+
+
         <h2>Flex Item</h2>
         <div class="flex-container flex21">
-            <div class="flex-item">1</div>
-            <div class="flex-item">2</div>
-            <div class="flex-item">3</div>
+            <div class="flex-item item1">1</div>
+            <div class="flex-item item2">2</div>
+            <div class="flex-item item3">3</div>
         </div>
+        <style>
+            .flex21{
+                display: flex;
+            }
+            .item1{
+                order: 3;
+            }
+            .item2{
+                order: 1;
+            }
+            .item3{
+                order: 2;
+            }
+        </style>
+
+
         <div class="flex-container flex22">
-            <div class="flex-item">1</div>
+            <div class="flex-item item1">1</div>
             <div class="flex-item">2</div>
             <div class="flex-item">3</div>
         </div>
+        <style>
+            .flex22{
+                display: flex;
+            }
+            .flex22 .flex-item{
+                flex-grow: 1;
+                /* 1(true) 확대하라 */
+                text-align: center;
+            }
+            .flex22 > .item1{
+                flex-grow: 0;
+                /* 기본값 : 0(false) 확대하지 말 것 */
+            }
+            /* 나는 이게 왜 갑자기 오른쪽? */
+        </style>
+
         <div class="flex-container flex23">
             <div class="flex-item">1</div>
             <div class="flex-item">2</div>
+            <div class="flex-item item3">3</div>
+            <div class="flex-item">1</div>
+            <div class="flex-item">2</div>
             <div class="flex-item">3</div>
-        </div>
-        <div class="flex-container flex24">
+            <div class="flex-item">1</div>
+            <div class="flex-item">2</div>
+            <div class="flex-item">3</div>
+            <div class="flex-item">1</div>
+            <div class="flex-item">2</div>
+            <div class="flex-item">3</div>
+            <div class="flex-item">1</div>
+            <div class="flex-item">2</div>
+            <div class="flex-item">3</div>
             <div class="flex-item">1</div>
             <div class="flex-item">2</div>
             <div class="flex-item">3</div>
         </div>
+        <style>
+            .flex23{
+                display: flex;
+            }
+            .flex23 .flex-item{
+                width: 100px;
+            }
+            .flex23 .item3{
+                flex-shrink: 0;
+            }
+        </style>
+
+        <div class="flex-container flex24">
+            <div class="flex-item">가</div>
+            <div class="flex-item">가나다</div>
+            <div class="flex-item">가나다라마</div>
+        </div>
+        <style>
+            .flex24{
+                display: flex;
+            }
+            .flex24 .flex-item{
+                flex-grow: 1;
+                /* flex-basis: auto; (기본값) 컨텐츠의 길이에 맞추어 변경 */
+                flex-basis: 0;
+                /* 0으로 하면 글자 크기에 관계 없이 1:1:1로 만들어짐. */
+            }
+        </style>
+
         <div class="flex-container flex25">
             <div class="flex-item">1</div>
             <div class="flex-item">2</div>
             <div class="flex-item">3</div>
         </div>
+        <style>
+            .flex25{
+                display: flex;
+            }
+            @media screen and (max-width: 800px){
+                .flex25{
+                    flex-direction: column;}
+            }
+            
+        </style>
+
         <div class="flex-container flex26">
             <div class="flex-item">1</div>
             <div class="flex-item">2</div>
