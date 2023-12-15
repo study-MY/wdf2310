@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>position</title>
+        <style>
+            .container {
+                position: relative;
+                background: lightblue;
+                /* height: 200vh; */
+            }
+            .box {
+                width: 200px;
+                height: 200px;
+                background: greenyellow;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>position</h1>
+        <div class="container relative">
+            <div class="fixed">fixed</div>
+            <!-- fixed의 기준: body -->
+            <div class="inner">
+                <div class="box sta">static</div>
+                <div class="box rel1">relative1</div>
+                <div class="box rel2">relative2</div>
+                <div class="box rel3">relative3</div>
+                <!-- relative는 자신이 기준이 됨. -->
+                <!-- 기준을 절대값(=위치값지정)으로 사용해서는 안됨. -->
+                <div class="box abs1">absolute1</div>
+                <div class="box-rel">
+                    <div class="box abs2">absolute2</div>
+                    <div class="box abs3">absolute3</div>
+                </div>
+            </div>
+            <style>
+                .sta {
+                    position: static;
+                }
+                .rel {
+                    height: 100vh;
+                    background: lightsalmon;
+                    border: 5px solid yellow;
+                }
+                .rel2 {
+                    top: 400px;
+                    right: 0;
+                }
+                .rel1, .rel2, .rel3 {
+                    position: relative;
+                }
+                .sticky {
+                    width: 200px;
+                    height: 200px;
+                    background: blue;
+                }
+            </style>
+            <style>
+                /* absolute : 절대값으로 위치 지정 */
+                /* 기준은 나와 가장 가까운 곳. 나의 부모 중에 특히. */
+                .inner{position: relative;}
+                .abs1 {
+                    position: absolute;
+                    top: 120px;
+                    right: 0;
+                    z-index: 2;
+                    /* top:0, left 0이 기본이 되는? */
+                    /* container에 position:relative;가 없으면 body를 기준으로 위치를 잡게 됨.  */
+                }
+                .abs2 {
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                }
+                .abs3 {
+                    position: absolute;
+                    top: 100px;
+                    left: -150px;
+                }
+                .box-rel {
+                    width: 500px;
+                    height: 500px;
+                    background-color: salmon;
+                    position: absolute;
+                    right: 0;
+                    bottom: 50px;
+                }
+                
+            </style>
+
+            
+            <style>
+                .fixed {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    z-index: 10000;
+                    /* right: 0;
+                    bottom: 0; */
+                    width: 100%;
+                    height: 70px;
+                    background-color: powderblue;
+                    /* 모달, 오버레이 등을 사용할 때 top, left, right, bottom :0 ;으로 처리해서 투명한 검정배경 사용 가능! */
+                }
+            </style>
+
+            <div class="rel">
+                <div class="sticky sticky1">sticky</div>
+            </div>
+            <div class="rel">
+                <div class="sticky sticky1">sticky</div>
+            </div>
+            <div class="rel">
+                <div class="sticky sticky1">sticky</div>
+            </div>
+            <style>
+                .rel{
+                    position: relative;
+                }
+                .sticky {
+                    position: sticky;
+                    top: 0;
+                    left: 0;
+                }
+            </style>
+        </div>
+
+        <h2 class="h2-center">가운데정렬</h2>
+        <div class="center">
+            <div class="item">가운데정렬</div>
+        </div>
+        <style>
+            .h2-center {
+                width: 50%;
+                background-color: #f0f0f0;
+                margin: 0 auto;
+                text-align: center;
+            }
+            .center {
+                height: 500px;
+                background-color: #ddd;
+                position: relative;
+            }
+            .center .item {
+                width: 200px;
+                height: 200px;
+                background-color: beige;
+
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                /* margin: -100px 0 0 -100px; */
+                /* 이건 매우 자주 사용됩니다! */
+                transform: translate(-50%, -50%);
+                /* margin은 기준이 없기 때문에 px지정을 통해서만 가능.
+                translate는 유동적 변화에 대응하여 %로 기입 가능 */
+
+                text-align: center;
+                line-height: 200px;
+            }
+        </style>
+    </body>
+</html>
