@@ -4,10 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JUST 쇼핑몰</title>
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
     <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="./assets/css/comm.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script defer src="./js/comm.js"></script>
   </head>
   <body>
+    
     <div class="wrap">
       <!-- header -->
       <header>
@@ -56,13 +63,35 @@
 
       <!-- slide -->
       <!-- 슬라이드는 이미지가 3개인 목록이라고 생각하면 이해하기 쉬움! -->
-      <div class="slide">
+      <!-- <div class="slide">
         <ul>
           <li><a href="#"><img src="./images/slide1.png" alt="찾던걸 더욱 빠륵 찾는 경험" /></a></li>
           <li><a href="#"><img src="./images/slide2.png" alt="기아 중고차 광고" /></a></li>
           <li><a href="#"><img src="./images/slide3.jpg" alt="기아 중고차 광고" /></a></li>
         </ul>
+      </div> -->
+
+      <!-- Slider main container -->
+      <div class="swiper slide-intro">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">Slide 1</div>
+          <div class="swiper-slide">Slide 2</div>
+          <div class="swiper-slide">Slide 3</div>
+          ...
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+        <!-- If we need scrollbar -->
+        <div class="swiper-scrollbar"></div>
       </div>
+
 
       <!-- main -->
       <main id="main">
@@ -116,5 +145,6 @@
       </footer>
 
     </div>
+    
   </body>
 </html>

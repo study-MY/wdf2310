@@ -32,10 +32,7 @@ header{
     text-align: center;
     padding: 10px 20px;
 }
-.depth2 li{
-    /* text-align: center;
-    margin: 5px; */
-}
+
 .depth2 a {
     display: block;
     padding: 5px 5px;
@@ -163,5 +160,8 @@ header{
     border-top: 1px solid snow;
 }
 
-
+.swiper {
+    /* width: 1200px; */
+    height: 300px;
+  }
 
