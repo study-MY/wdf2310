@@ -1,7 +1,7 @@
 const swiper = new Swiper('.slide-intro', {
     // Optional parameters
     // direction: 'vertical',
-    loop: true,
+    loop: false,
   
     // If we need pagination
     // pagination: {

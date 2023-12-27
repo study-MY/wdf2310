@@ -1,9 +1,32 @@
+/* 공통 */
+.blind {
+    position: absolute;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -9999px;
+}
+/* 시각 장애인에겐 들리고 일반인에게는 보이지 않는 텍스트 */
+
 .wrap{
-    width: 1200px;
+    max-width: 1200px;
+    /* height: 200vh; */
     margin: 0 auto;
     background-color: #fafafa;
 }
-header{
+
+@media screen and (max-width:980px) {
+    .wrap {
+        padding: 0 30px;
+    }
+}
+@media screen and (max-width:420px) {
+    .wrap {
+        padding: 0 15px;
+    }
+}
+
+/* header start */
+#header{
     height: 100px;
     display: flex;
     justify-content: space-between;
@@ -15,7 +38,6 @@ header{
 #gnb .depth1{
     display: flex;
     gap: 0px;
-    
 }
 .depth1 li{
     position: relative;
@@ -60,6 +82,46 @@ header{
     height: 40px;
     /* 여기서 패딩 넣으면 그리드가 무너질 수 있음. */
 }
+
+/* tablet */
+@media screen and (max-width:980px) {
+    #header {
+        height: auto;
+        flex-direction: column;
+    }
+    #logo a{
+        margin-top: 10px;
+        padding: 20px 0 10px 0;
+        height: auto;
+        font-size: 20px;
+        justify-content: center;
+    }
+    .depth1 > li > a{
+        height: 50px;
+        white-space: nowrap;
+    }
+    .depth2{
+        top: 50px;
+    }
+}
+@media screen and (max-width:430px) {
+    #header {
+        margin-top: 10px;
+    }
+    #gnb {
+        width: 100%;
+        overflow-x: auto;
+    }
+    #logo a{
+        margin-top: 0;
+    }
+    .depth1 > li > a{
+        height: auto;
+        padding: 0 18px;
+    }
+}
+/* /header */
+
 .slide ul{
     display: flex;
     /* height: 300px; */
@@ -150,6 +212,35 @@ header{
     line-height: 85px;
     /* 행간을 높이값만큼 넣으면 글씨가 middle으로 들어간다. */
 }
+@media screen and (max-width:980px) {
+    #main{
+        height: auto;
+        flex-wrap: wrap;
+        gap: 0;
+    }
+    .sec-g{
+        flex-basis:auto;
+        flex-grow: 0;
+    }
+    .bbs{
+        width: 100%;
+    }
+    .bnr, .goto {
+        width: calc(100% / 2 - 10px);
+    }
+}
+@media screen and (max-width:430px) {
+    .bnr img{
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+    }
+    .bnr, .goto {
+        width: 100%;
+    }
+}
+
+/* /main */
 
 /* footer */
 #footer{
@@ -160,8 +251,80 @@ header{
     border-top: 1px solid snow;
 }
 
+@media screen and (max-width:980px) {
+    #footer {
+        padding: 20px 0;
+        height: auto;
+        display: block;
+        text-align: center;
+        background-color: #eee;
+    }
+}
+
 .swiper {
     /* width: 1200px; */
     height: 300px;
   }
 
+.dimmed {
+    display: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    /* width: 100%; height: 100%; */
+    z-index: 10000;
+}
+.modal {
+    width: 500px;
+    height: 300px;
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -150px 0 0 -250px;
+    padding: 50px;
+    border-radius: 20px;
+    border: 1px solid gray;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+}
+.modal .modal-hd {
+    margin-bottom: 30px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.btn-close {
+    margin: -20px;
+    width: 40px;
+    height: 40px;
+    background-color: antiquewhite;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+    color: #fff;
+}
+.btn-close i{
+    font-size: 28px;
+    color: burlywood;
+}
+
+.btn-close::after {
+    content: "\f00d";
+    font-family: 'Line Awesome Free';
+    font-weight: 900;
+    font-size: 30px;
+
+}
+
+body{
+    background: url() no-repeat 50% 0;
+}
+.wrap {
+    opacity: 0.7;
+}
