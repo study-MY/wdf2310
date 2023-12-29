@@ -1,0 +1,331 @@
+/* 공통 */
+.blind {
+    position: absolute;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -9999px;
+}
+/* 시각 장애인에겐 들리고 일반인에게는 보이지 않는 텍스트 */
+
+.wrap{
+    max-width: 1200px;
+    /* height: 200vh; */
+    margin: 0 auto;
+    background-color: #fafafa;
+}
+
+@media screen and (max-width:980px) {
+    .wrap {
+        padding: 0 30px;
+    }
+}
+@media screen and (max-width:420px) {
+    .wrap {
+        padding: 0 15px;
+    }
+}
+
+/* header start */
+#header{
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: snow;
+    position: relative;
+
+}
+#gnb .depth1{
+    display: flex;
+    gap: 0px;
+}
+.depth1 li{
+    position: relative;
+}
+.depth2{
+    display: none;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    width: 100%;
+    background-color: #ffffff;
+    text-align: center;
+    padding: 10px 20px;
+}
+
+.depth2 a {
+    display: block;
+    padding: 5px 5px;
+}
+/* #gnb .depth1:hover .depth2{
+    display: block;
+} */
+/* 위는 gnb의 전체메뉴 보이게 설정하는 방법 */
+/* #gnb .depth1 li:hover .depth2{
+    display: block;
+} */
+
+/* 이건 해당 메뉴만 펼쳐지게 설정하는 방법 */
+
+.depth1 > li > a{
+    display: flex;
+    align-items: center;
+    height: 100px;
+    background-color: snow;
+    padding: 0 50px;
+}
+#logo a{
+    display: flex;
+    align-items: center;
+    width: 200px;
+    height: 40px;
+    /* 여기서 패딩 넣으면 그리드가 무너질 수 있음. */
+}
+
+/* tablet */
+@media screen and (max-width:980px) {
+    #header {
+        height: auto;
+        flex-direction: column;
+    }
+    #logo a{
+        margin-top: 10px;
+        padding: 20px 0 10px 0;
+        height: auto;
+        font-size: 20px;
+        justify-content: center;
+    }
+    .depth1 > li > a{
+        height: 50px;
+        white-space: nowrap;
+    }
+    .depth2{
+        top: 50px;
+    }
+}
+@media screen and (max-width:430px) {
+    #header {
+        margin-top: 10px;
+    }
+    #gnb {
+        width: 100%;
+        overflow-x: auto;
+    }
+    #logo a{
+        margin-top: 0;
+    }
+    .depth1 > li > a{
+        height: auto;
+        padding: 0 18px;
+    }
+}
+/* /header */
+
+.slide ul{
+    display: flex;
+    /* height: 300px; */
+}
+.slide {
+    width: 1200px;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+}
+.slide ul{
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.slide ul img{
+    display: block;
+    height: 300px;
+}
+
+/* main */
+#main{
+    height: 200px;
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.sec-g{
+    /* width: 33.333%; */
+    flex-grow: 1;
+    flex-basis:0;
+    padding: 10px 0;
+}
+.sec-g .sec-tit{
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+/* main bbs */
+.list-bbs li{
+    display: flex ;
+    align-items: center;
+}
+.list-bbs a{
+    display: block;
+    width: 100%;
+    /* padding: 5px 0; */
+}
+.list-bbs li::before{
+    content: '';
+    display: block;
+    width: 5px;height: 5px;
+    margin-right: 10px;
+    background-color: antiquewhite;
+}
+
+/* main bnr */
+.bnr .sec-tit, .goto .sec-tit{
+    margin: 0;
+    text-indent: -9999px;
+    line-height: 0;
+    font-size: 0;
+}
+
+
+/* main goto */
+.sec-g .list-goto{
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    justify-content: space-between;
+    align-content: space-between;
+}
+.list-goto li{
+    display: block;
+    width: 48%;
+    /* width 안 넣으니까 텍스트에 맞추어서 계속 한 줄로 쭉 놓임... */
+    height: 48%;
+    background-color: papayawhip;
+}
+.list-goto a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 85px;
+    /* 행간을 높이값만큼 넣으면 글씨가 middle으로 들어간다. */
+}
+@media screen and (max-width:980px) {
+    #main{
+        height: auto;
+        flex-wrap: wrap;
+        gap: 0;
+    }
+    .sec-g{
+        flex-basis:auto;
+        flex-grow: 0;
+    }
+    .bbs{
+        width: 100%;
+    }
+    .bnr, .goto {
+        width: calc(100% / 2 - 10px);
+    }
+}
+@media screen and (max-width:430px) {
+    .bnr img{
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+    }
+    .bnr, .goto {
+        width: 100%;
+    }
+}
+
+/* /main */
+
+/* footer */
+#footer{
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid snow;
+}
+
+@media screen and (max-width:980px) {
+    #footer {
+        padding: 20px 0;
+        height: auto;
+        display: block;
+        text-align: center;
+        background-color: #eee;
+    }
+}
+
+.swiper {
+    /* width: 1200px; */
+    height: 300px;
+  }
+
+.dimmed {
+    display: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    /* width: 100%; height: 100%; */
+    z-index: 10000;
+}
+.modal {
+    width: 500px;
+    height: 300px;
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -150px 0 0 -250px;
+    padding: 50px;
+    border-radius: 20px;
+    border: 1px solid gray;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+}
+.modal .modal-hd {
+    margin-bottom: 30px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.btn-close {
+    margin: -20px;
+    width: 40px;
+    height: 40px;
+    background-color: antiquewhite;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+    color: #fff;
+}
+.btn-close i{
+    font-size: 28px;
+    color: burlywood;
+}
+
+.btn-close::after {
+    content: "\f00d";
+    font-family: 'Line Awesome Free';
+    font-weight: 900;
+    font-size: 30px;
+
+}
+
+body{
+    background: url() no-repeat 50% 0;
+}
+.wrap {
+    opacity: 0.7;
+}

@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-size: 16px;
+    line-height: 1.5;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+.wrap{
+    width: 1280px;
+    height: 100vh;
+    margin: 0 auto;
+    display: flex;
+}
+.contnet{
+    display: flex;
+    flex-grow: 1;
+}
+#header{
+    height: 100px;
+}
+.aside{
+    height: 300px;
+}
+
+#main{
+    flex-grow: 1;
+}
+#footer{
+    height: 100px;
+}

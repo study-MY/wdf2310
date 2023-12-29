@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    line-height: 1.5;
+    font-size: 16px;
+    color: #333333;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+.inner{
+    height: calc(100vh - 100px);
+    background-color: #f0f0f0;
+    display: flex;
+}
+#footer{
+    height: 100px;
+}
+#header{
+    width: 200px;
+}
+.content{
+    /* width: calc(100% - 200px); */
+    flex-grow: 1;
+}
+.wrap2{
+    height: 100vh;
+}
