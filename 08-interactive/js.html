@@ -5,22 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parallax Scrolling - JS</title>
-</head>
-
-<body>
-    <div class="extra-content">
-        <p>Parallax Scrolling (JS)</p>
-    </div>
-    <div class="section">
-        <div class="parallax-element background"></div>
-        <div class="parallax-element square"></div>
-        <div class="parallax-element circle"></div>
-        <strong class="parallax-element title">글씨는 스크롤이 느림</strong>
-    </div>
-    <div class="extra-content">
-        <p>Parallax Scrolling</p>
-    </div>
-
     <style>
         .section {
             height: 150vh;
@@ -67,11 +51,10 @@
         }
 
         .square {
-            top: auto;
-            bottom: 0;
+            top: 60%;
             left: auto;
-            right: 0;
-            width: 0;
+            right: -100px;
+            width: 300px;
             height: 300px;
             background-color: lightsalmon;
             z-index: 3;
@@ -102,29 +85,79 @@
             color: #fff;
         }
     </style>
+</head>
+
+<body>
+    <div class="extra-content">
+        <p>Parallax Scrolling (JS)</p>
+    </div>
+    <div class="section">
+        <div class="parallax-element background"></div>
+        <div class="parallax-element square"></div>
+        <div class="parallax-element circle"></div>
+        <strong class="parallax-element title">글씨는 스크롤이 느림</strong>
+    </div>
+    <div class="section">
+        <div class="parallax-element background"></div>
+        <div class="parallax-element square"></div>
+        <div class="parallax-element circle"></div>
+        <strong class="parallax-element title">글씨는 스크롤이 느림</strong>
+    </div>
+    <div class="extra-content">
+        <p>Parallax Scrolling</p>
+    </div>
+
+
     <script>
         // 바닐라 자바는 브라우저에서 기본으로 제공하기 때문에 cdn 삽입할 필요 없음.
 
         // 윈도우에 스크롤 이벤트를 걸어야 함.
         // why?
-        window.addEventListener("scroll", function () {
-            const section = document.querySelector(".section")
-            const background = section.querySelector(".background")
-            const circle = section.querySelector(".circle")
-            const square = section.querySelector(".square")
-            const title = section.querySelector(".title")
+        window.addEventListener('scroll', function () {
+            const section = document.querySelectorAll(".section");
 
-            // 윈도우 스크롤 값
-            let scrolled = window.scrollY;
-            console.log('scrollY : ' + scrolled);
-            // 백틱기호 쓴다고 하면 console.log(`scrollY + ${scrolled}`)
+            // querySelector 첫번째 오브젝트만 선택
+            // querySelectorAll 모든 오브젝트 선택
 
-            // title.style.background = 'red';
-            background.style.transform = `translateY(${scrolled * 0.8}px)`
-            // 데이터는 따옴표가 아니라 백틱을 넣어야 함.
-            title.style.transform = `translateY(${scrolled * 0.3}px)`
-            circle.style.transform = `translateX(${scrolled * 0.5}px)`
-            square.style.transform = `translateX(${scrolled * -0.5}px)`
+            // forEach: 각 섹션 반복
+            section.forEach(function (section) {
+                section.style.border = '5px solid #ff0000';
+
+                // 변수설정
+                const background = section.querySelector(".background");
+                const circle = section.querySelector(".circle");
+                const square = section.querySelector(".square");
+                const title = section.querySelector(".title");
+                let bounds = section.getBoundingClientRect();
+
+                // 윈도우 스크롤 값
+                let scrolled = window.scrollY;
+
+                console.log(`scrollY : ${scrolled}`);
+                console.log(`bounds.bottom : ${bounds.bottom}`);
+                console.log(`bounds.top : ${bounds.top}`);
+                console.log(`window.innerHeight : ${window.innerHeight}`);
+
+
+                // if (조건문) {실행문}
+                // section이 뷰포트 내에 있을 경우
+                if (bounds.top < window.innerHeight && bounds.bottom >= 0) {
+
+                    console.log('scrollY : ' + scrolled);
+                    // 백틱기호 쓴다고 하면 console.log(`scrollY + ${scrolled}`)
+
+                    let sectionScrolled = window.pageYOffset - section.offsetTop;
+
+
+                    // title.style.background = 'red';
+                    background.style.transform = `translateY(${scrolled * 0.8}px)`
+                    // 데이터는 따옴표가 아니라 백틱을 넣어야 함.
+                    title.style.transform = `translateY(${scrolled * 0.3}px)`
+                    circle.style.transform = `translateX(${scrolled * 0.5}px)`
+                    square.style.width = `${scrolled * 0.5}px`
+                }
+
+            });
         });
     </script>
 </body>
