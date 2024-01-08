@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parallax Scrolling - CSS</title>
+</head>
+
+<body>
+    <div class="box"></div>
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            background-color: gold;
+
+            transition: all 0.5s;
+
+            perspective: 600px;
+            /* property에 넣고 싶으면 여기. */
+            /* transform: perspective(600px) rotateX(60deg) rotateY(0deg)
+                rotateZ(-45deg); */
+            /* perspective를 속성 값으로 사용할 경우 부모에게 넣어줌. */
+        }
+
+        .box:hover {
+            rotate: 150deg;
+            background-color: orangered;
+            /* perspective: 600px;를 여기에 적으면 안됨. 변화 이전, 부모 즉 .box에 적어야 함. */
+            transform: perspective(600px) rotateX(60deg) rotateY(0deg) rotateZ(-45deg);
+            /* value로 넣고 싶으면 여기. */
+        }
+    </style>
+    <div class="wrap">
+        <div id="div1" class="parallax"></div>
+        <div id="div2" class="parallax"></div>
+        <div id="div3" class="parallax"></div>
+    </div>
+    <style>
+        .wrap {
+            position: relative;
+
+            height: 200vh;
+            overflow: hidden;
+            /* 스크롤 하기 위한 공간을 만들어줌! */
+
+            perspective: 1px;
+        }
+
+        .parallax {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+
+        #div1 {
+            height: 150rem;
+            background-color: green;
+        }
+
+        #div2 {
+            top: 300px;
+            height: 500px;
+            background: blue;
+            transform: translateZ(-10px);
+        }
+
+        #div3 {
+            top: 500px;
+            height: 500px;
+            background: purple;
+            opacity: 0.5;
+            transform: translateZ(-1px);
+        }
+    </style>
+</body>
+
+</html>
