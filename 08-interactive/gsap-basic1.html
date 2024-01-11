@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/gsap-basic1.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        .green {
+            background: greenyellow;
+        }
+
+        .purple {
+            background: purple;
+        }
+
+        .blue {
+            background: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        header
+    </header>
+    <div class="box green"></div>
+    <div class="box purple"></div>
+    <div class="box blue"></div>
+
+    <div class="area1"></div>
+    <div class="area2">
+        <div class="circle-g circle1">
+            box1
+        </div>
+        <div class="circle-g circle2">
+            box2
+        </div>
+    </div>
+    <div class="area3"></div>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        const hd = document.querySelector('#header');
+        window.addEventListener();
+
+        gsap.to('.circle1', {
+            scrollTrigger: {
+                trigger: '.area2', // scrollTrigger 동작 지점을 어디로 잡을 지
+                markers: true, // 모션의 시작과 끝에 마커를 표시
+                start: 'top 50%', // 모션이 시작되는 지점 (trigger의 상대 위치, 뷰포트의 절대 위치),
+                end: 'bottom 50%', // 모션이 끝나는 지점
+                scrub: true,
+            },
+            x: 300,
+            duration: 1
+        });
+        gsap.to('.circle2', {
+            scrollTrigger: {
+                trigger: '.area2',
+                markers: { startColor: "lightgrey", endColor: "white", fontSize: "18px", fontWeight: "bold", indent: 20 },
+                start: 'top 50%',
+                end: "+=500",
+                scrub: true
+            },
+            scale: 100, duration: 3,
+        })
+    </script>
+</body>
+
+</html>

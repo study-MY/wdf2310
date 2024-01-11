@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
+    <style>
+        .sec-g {
+            border: 5px solid grey;
+            display: flex;
+            /* align-items: center; */
+            justify-content: space-around;
+            min-height: 50vh;
+            flex-direction: column;
+        }
+
+        .box {
+            width: 50px;
+            height: 50px;
+            border-radius: 3px;
+        }
+
+        .green {
+            background: greenyellow;
+        }
+
+        .purple {
+            background: purple;
+        }
+
+        .blue {
+            background: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sec-g sec-basic">
+        <div class="box green"></div>
+        <div class="box purple"></div>
+        <div class="box blue"></div>
+    </div>
+
+
+    <script>
+        // gsap 구문
+        // gsap.to('element', 'time', '{option}');
+        gsap.from(".sec-basic .green", 5, { rotation: 360, x: 1000, scale: 4, transformOrigin: "0 40%", autoAlpha: 0, repeat: 3, yoyo: true });
+        // gsap.to(".sec-basic .green", 5, { rotation: 360, x: 1000, scale: 4, transformOrigin: "0 40%", autoAlpha: 0, repeat: 3, yoyo: true }); // 1초, not ms.
+        gsap.to(".sec-basic .purple", 0.5, { rotation: 360, repeat: -1 });
+
+        gsap.fromTo(".sec-basic .blue", 2, { scale: 1 }, { background: '#0000ff', scale: 2, repeat: -1, yoyo: true });
+    </script>
+
+    <div class="sec-g sec-timeline">
+        <div class="box green"></div>
+        <div class="box purple"></div>
+        <div class="box blue"></div>
+    </div>
+    <script>
+        const tl = gsap.timeline();
+        tl.to('.sec-timeline .green', 2, { x: 100, }).to('.sec-timeline .purple', 2, { y: 100, }).to('.sec-timeline .blue', 2, { rotation: 100, });
+    </script>
+</body>
+
+</html>
