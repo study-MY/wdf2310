@@ -45,14 +45,17 @@
     </div>
     <div class="area3"></div>
 
-    <a href="#" class="btn-top">UP!</a>
+    <a href="javascript:void()" class="btn-top" onclick="">UP!</a>
     <!-- btn-top, topToGo -->
 
     <script>
         gsap.registerPlugin(ScrollTrigger);
 
         const hd = document.querySelector("#header");
+        const topBtn = document.querySelector(".btn-top")
         const btnRightHidden = -250;
+
+
         window.addEventListener("scroll", _.throttle(hdScroll, 300)); //300ms = 0.3s
         function hdScroll() {
             // 만약 header 높이값만큼 스크롤되면
@@ -92,11 +95,28 @@
                 // gsap.from(".btn-top", 0.3, { opacity: 100, display: 'block' });
             }
         }
+
+        // btnTop 클릭 시
+
+        btnTop.addEventListender('click', function () {
+            // 링크 이동 방지
+            // <a href="javascript:void">위로</a>
+            event.preventDefault();
+
+            // 화면을 맨 위로 이동
+            gasp.to(window, {
+                scrollTo: 0,
+                duration: 1
+            });
+        });
+        // 화면 맨 위로 이동
+
+
         gsap.to(".circle1", {
             scrollTrigger: {
                 trigger: ".area2", // scrollTrigger 동작 지점을 어디로 잡을 지
                 markers: true, // 모션의 시작과 끝에 마커를 표시
-                start: "top 50%", // 모션이 시작되는 지점 (trigger의 상대 위치, 뷰포트의 절대 위치),
+                start: "top 20%", // 모션이 시작되는 지점 (trigger의 상대 위치, 뷰포트의 절대 위치),
                 end: "bottom 50%", // 모션이 끝나는 지점
                 scrub: true,
             },
@@ -120,6 +140,10 @@
             scale: 100,
             duration: 3,
         });
+
+
+
+
     </script>
 </body>
 
