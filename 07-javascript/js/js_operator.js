@@ -196,12 +196,12 @@ function sum(a, b, c) {
 console.log(sum(1, 2, 3));
 console.log(sum(4, 5, 6));
 
-// 배열을 파라미터(인수)로 전달하려면,
+// 배열을 파라미터(인수)로 전달하려면?
 const num3 = [5, 6, 7];
 const num4 = [8, 9, 10];
 console.log(sum(num3[0], num3[1], num3[2]));
 console.log(sum(num4[0], num4[1], num4[2]));
+
 // 전개 연산자로 바꾸어 작성하면?
-// console.log(sum(..))
 console.log(...num3);
 console.log(...num4);
