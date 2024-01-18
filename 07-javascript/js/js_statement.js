@@ -224,5 +224,55 @@ for (let i = 10; i > 0; i--) {
   if (i % 2 !== 0) {
     continue;
   }
+  // continue : 조건에 해당하는 걸 버리고 간다..!
   console.log(i);
+}
+
+// for of 문
+console.log(arr);
+for (let i = 0; i < arr.length; i++) {
+  console.log(i);
+}
+
+const animals = ["leopard", "cat", "girin"];
+console.log(animals);
+console.log(animals.length);
+console.log(animals[0], animals[1], animals[2]);
+for (let i = 0; i < animals.length; i++) {
+  console.log(i);
+  console.log(animals[i]);
+}
+
+// for of 문
+// for (매개?변수 of 배열) {실행될 코드}
+for (let animal of animals) {
+  console.log(animal);
+}
+
+// ex 2
+const users = [
+  {
+    name: "winter",
+    age: 2,
+  },
+  {
+    name: "fall",
+    age: 3,
+  },
+  {
+    name: "summer",
+    age: 4,
+  },
+];
+console.log(users);
+console.log(users.name);
+console.log(users[0].name);
+
+for (let i = 0; i < users.length; i++) {
+  console.log(users[i]);
+  console.log(users[i].name);
+}
+
+for (let user of users) {
+  console.log(user.name);
 }
