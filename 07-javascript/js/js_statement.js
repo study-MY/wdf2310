@@ -32,7 +32,8 @@ console.log(h, rest);
 console.log(g, h, rest);
 
 // 객체의 구조 분해
-// ★★★ 많이 사용합니다! 기억합시다!
+// ★★★
+// 많이 사용합니다! 기억합시다!
 
 const myCat = {
   name: "gs",
@@ -42,6 +43,16 @@ const myCat = {
 };
 console.log(myCat.name, myCat.age);
 console.log(`${myCat.name}은 ${myCat.age}세 입니다.`);
+
+// 객체의 구조분해 복습
+const airbnbIcon = {
+  img: "airbnb.png",
+  text: "한옥",
+};
+console.log(airbnbIcon.img, airbnbIcon.text); // img src="airbnbIcon.img", <a>한옥</a>
+const { img, text } = airbnbIcon;
+console.log(img, text);
+// 이거
 
 // 기본값 할당, 변수 이름 바꾸기
 const { name: nick, age = 0, birth = "01/01" } = myCat;
@@ -73,3 +84,145 @@ function printCity(user) {
 
 console.log(printCity(userWinter));
 console.log(printCity(userFall));
+
+// 조건문
+// // if 문
+// if (조건) {
+//   // 조건이 true일 때 실행되는 코드
+// }
+
+// // if else 문
+// if (조건) {
+//   // 조건이 true일 때 실행되는 코드
+// } else {
+//   // 조건이 false일 때 실행되는 코드
+// }
+
+// // if else if if문
+// if (조건1) {
+//   // 조건1이 true일 때 실행되는 코드
+// } else if (조건2) {
+//   // 조건2가 true일 때 실행되는 코드
+// } else {
+//   // 조건이 false일 때 실행되는 코드
+// }
+
+// 음수, 양수 판별 함수
+// 함수 선언
+// function isPositive(num) {
+//   if (num > 0) {
+//     return true;
+//   } else if (num < 0) {
+//     return false;
+//   } else {
+//     return "0입니다.";
+//   }
+// }
+function isPositive(num) {
+  if (num > 0) {
+    console.log(`${num} is Positive Number`);
+  } else if (num < 0) {
+    console.log(num + " is Negative Number");
+  } else {
+    console.log(`${num} is Zero`);
+  }
+}
+
+// 함수 실행
+isPositive(-76);
+isPositive(127);
+
+// switch 문
+// 매개변수로 입력된 값과 일치하는 case문을 실행한다.
+
+// switch (매개변수) {
+//   case 값1 :
+//     // 매개변수 === 값1 일 때 실행되는 코드
+//     break;
+//   case 값2 :
+//     // 매개변수 === 값2 일 때 실행되는 코드
+//     break;
+//   default:
+//     // 매개변수와 일치하는 case문이 없을 때 실행되는 코드
+// }
+
+function getPrice(item) {
+  let price;
+  switch (item) {
+    case "패딩":
+      price = "280,000";
+      break;
+    case "바지":
+      price = "55,000";
+      break;
+    default:
+      price = "아이템 별로 상이함";
+  }
+  return item + "의 가격은 " + price + "입니다.";
+}
+console.log(getPrice("스웨터"));
+console.log(getPrice("패딩"));
+console.log(getPrice("티셔츠"));
+
+function getPrice2(item) {
+  switch (item) {
+    case "패딩":
+      return "280,000";
+    // return이란 함수를 종료하고 값을 반환하는 것이고,
+    // return을 사용하면 break를 사용하지 않아도 된다.
+    case "바지":
+      return "55,000";
+    default:
+      return "아이템 별로 상이함";
+  }
+}
+
+console.log(getPrice2("패딩"));
+console.log(getPrice2("바지"));
+console.log(getPrice2("모자"));
+console.log(getPrice2("신발"));
+
+//if 문으로 바꾸기
+function getPrice3(item) {
+  if (item === "패딩") return "280,000";
+  if (item === "바지") return "55,000";
+  return "아이템 별로 상이함";
+}
+console.log(getPrice3("패딩"));
+// ===은 완전 일치니까 검색에 있어서는 이걸 사용 못하잖아? 그럼 검색어 자동수정이나 한영 바뀌거나 비슷한 카테고리 묶어서 검색시켜주는 건 어떻게?
+
+// 반복문
+// 반복문이란 특정 코드를 반복적으로 실행할 때 사용.
+
+// for 문
+// for (초기화; 조건; 증감) {실행될 코드}
+// ★★★
+// 반복문을 쓰는 이유? 예: 에어비앤비, 배열에 있는 객체의 갯수만큼
+
+// 초기화 시 변수는 i를 많이 사용.
+
+// 1부터 10까지 출력
+for (let i = 1; i <= 10; i++) {
+  console.log(i);
+}
+// i = i+1
+// i += i
+// i++
+
+// break 문
+for (let i = 10; i > 0; i--) {
+  if (i <= 3) {
+    break;
+  }
+  // i가 3이하일 때 (혹은 4보다 작을 때)
+  // 전체 반복문을 종료한다.
+  console.log(i);
+}
+
+// continue 문 : 현재 반복을 멈추고 다음 반복을 진행 (건너뛰기)
+for (let i = 10; i > 0; i--) {
+  if (i % 2 !== 0) {
+    continue;
+  }
+  console.log(i);
+}
