@@ -276,3 +276,49 @@ for (let i = 0; i < users.length; i++) {
 for (let user of users) {
   console.log(user.name);
 }
+
+// for in 문
+// for (변수 in 객체) {실행될 코드}
+
+const user = {
+  name: "gs",
+  age: 10,
+};
+console.log(user);
+console.log(user.name);
+console.log(user.age);
+console.log(user.name, user.age);
+console.log(user["name"], user["age"]);
+for (let key in user) {
+  console.log(key);
+  // console.log(user["name"]);
+  console.log(user[name]);
+}
+
+// while 문
+// while (조건) {실행될 코드}
+
+// 1부터 10까지 더하기
+let i = 1; // 초기값
+let sum = 0; // 합계를 저장할 변수
+
+while (i <= 10) {
+  sum += i;
+  // sum = i + 1;
+  i++;
+  // i += 1;
+  // i = i + 1;
+}
+
+console.log(sum);
+
+// do while 문
+// do {실행될 코드} while (조건)
+// 코드를 먼저 실행하고 조건을 검사
+// while문과 동일하게 동작하지만 조건이 false일지라도 최소 한 번은 실행.
+
+let j = 0;
+do {
+  console.log(j);
+  j++;
+} while (j < 10);
