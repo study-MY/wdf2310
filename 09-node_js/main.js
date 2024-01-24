@@ -22,3 +22,6 @@ const swiper = new Swiper("엘리먼트 이름", {
     el: ".swiper-scrollbar",
   },
 });
+
+import hello from "./module.js";
+hello();
