@@ -186,3 +186,59 @@ const g = () => [1, 2];
 
 // 재귀 함수
 // 자기 자신을 호출하기 떄문에 무제한 호출, 따라서 종료 조건 붙여야 함.
+
+// 호출 스케줄링
+
+// setTimeout
+// setTimeout은 일정 시간이 지난 후에 함수를 실행하는 함수이다.
+// setTimeout(함수, 시간)
+
+const timer = setTimeout(() => {
+  console.log("hello");
+}, 3000);
+
+const btnStop = document.querySelector("#btnStop");
+// btnStop.addEventListener(이벤트, 함수)
+btnStop.addEventListener("click", () => {
+  console.log("취소완료");
+  clearTimeout(timer);
+});
+
+const timerSlide = setInterval(() => {
+  console.log("지뢰찾기 슬라이드");
+}, 3000);
+
+const btnSlideStop = document.querySelector("#slideStop");
+btnSlideStop.addEventListener("click", () => {
+  console.log("slideStop");
+  clearInterval(timerSlide);
+});
+
+// 콜백 함수
+// 함수의 매개변수로 전달되는 함수를 콜백함수라고 한다.
+
+const txtA = (f) => {
+  // console.log(f);
+  f();
+  console.log("A");
+};
+const txtB = () => {
+  console.log("B");
+};
+
+// txtA();
+txtB();
+// txtA("T");
+txtA(txtB);
+
+const sum3 = (a, b, c) => {
+  // setTimeout(함수, 시간)
+  setTimeout(() => {
+    return c(a + b);
+  }, 1000);
+};
+
+sum3(1, 2, (value) => {
+  console.log(value);
+});
+// console.log(sum3(5, 7));

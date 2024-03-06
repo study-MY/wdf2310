@@ -147,3 +147,89 @@ console.log(`${cats[1].name}의 나이는 ${cats[1].age}입니다.`);
 for (i = 0; i < cats.length; i++) {
   console.log(`${cats[i].name}의 나이는 ${cats[i].age}입니다.`);
 }
+
+hello();
+function hello() {
+  console.log("안녕하세요 선언식입니다.");
+}
+
+const hello2 = function () {
+  return "안녕하세요 표현식입니다.";
+};
+console.log(hello2());
+hello2();
+
+function sum(x = 12, y = 7) {
+  return x + y;
+}
+
+console.log(sum(5, 7));
+console.log(sum(7));
+console.log(sum());
+
+// 함수 내에서 구조분해할당
+const userC = {
+  name: "치즈",
+  age: 2,
+  email: "",
+};
+
+function getName({ name, age, email = "없음" }) {
+  // const {name, age} = props;
+  // return props.name;
+  return `${name}의 나이는 ${age}세 입니다. 이메일은 ${email}입니다.`;
+}
+console.log(getName(userC));
+
+const grade1 = ["yuji", "nobara", "megumi"];
+function get2([a, b = "student2", c, ...rest]) {
+  // const [a, b, c, ...rest] = props;
+  // return props[1];
+  return b;
+}
+console.log(get2(grade1));
+
+function sum4(...rest) {
+  return rest;
+}
+console.log(sum4(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11));
+
+const arrow = (x, y) => {
+  return x + y;
+};
+console.log(arrow(1, 2));
+
+const sum3 = (x, y) => x + y;
+console.log(sum3(2, 3));
+
+// 화살표 함수의 다양한 예시
+// 매개 변수가 없는 경우
+const aa = () => {};
+// 매개변수가 하나인 경우
+// const bb = x => {} : prettier의 자동 소괄호 추가로 주석처리함.
+// 매개변수가 여러개인 경우
+const cc = (x, y) => {};
+
+// 함수에 return이 있는 경우
+const d = (x) => {
+  return x;
+};
+console.log(d(5));
+// 축약된 형태 return 생략
+const e = (x) => x;
+const f = (x, y) => x + y;
+// return키워드로 시작하지 않는 경우
+// 생략할 수 없음.
+const ff = (x, y) => {
+  console.log(x + y);
+  return x + y;
+};
+// 객체 데이터를 반환한는 경우
+const gg = () => {
+  return { a: 1, b: 2 };
+};
+
+// const hh = () => (a: 1, b: 2)
+// 객체의 중괄호와 화살표 함수의 중괄호를 구분하기 위해 소괄호를 사용
+
+const ii = () => [1, 2, 3];
