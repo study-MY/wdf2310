@@ -242,3 +242,103 @@ sum3(1, 2, (value) => {
   console.log(value);
 });
 // console.log(sum3(5, 7));
+
+// call back
+
+const txtA2 = (txtB2) => {
+  txtB2();
+  console.log("text A");
+};
+const txtB2 = () => {
+  console.log("text B");
+};
+
+txtA2(txtB2); // 함수를 인수로서 집어 넣는 것이기 때문에 인수로 작성할 때는 괄호가 필요치 않음.
+// txtB2();
+
+// setTimeout
+const sum4 = (a, b, c) => {
+  setTimeout(() => {
+    return c(a + b);
+  }, 2000);
+};
+
+sum4(1, 5, (d) => {
+  console.log(d);
+});
+
+// 그냥 셋타임아웃 하면 함수는 실행되었는데 값이 들어오는 건 시간을 미뤘기 때문에 언디파인드
+// 따라서 이걸 해결하기 위해 console.log(함수)를 인수로 만들어서 전달하는 것으로 해결할 수 있고,
+// console.log 를 c라는 인수로 전달함.
+
+// console.log(sum4(1, 5));
+
+// 재귀 함수
+// 자기 자신을 호출하기 떄문에 무제한 호출, 따라서 종료 조건 붙여야 함.
+
+let i = 0;
+
+const aa = () => {
+  console.log("aaa");
+  i++;
+  if (i < 5) {
+    aa();
+  }
+};
+aa();
+
+const userA = { name: "A", parent: null };
+const userB = { name: "B", parent: userA };
+const userC = { name: "C", parent: userB };
+const userD = { name: "D", parent: userC };
+
+const getRootUser = (props) => {
+  if (props.parent) {
+    return getRootUser(props.parent);
+  } else {
+    return props;
+  }
+};
+console.log(getRootUser(userD));
+console.log(null);
+
+// // 일반 함수는 호출 위치에 따라 this
+// // 화살표 함수는 자신이 선언된 함수 범위에서 this가 결정
+
+// const obj = {
+//   name: "아메리카노",
+//   price: 2500,
+//   // front: function () {
+//   front() {
+//     return `${this.name}의 가격은 ${this.price}원입니다.`;
+//   }, // 이걸 method라고 함
+// };
+
+// console.log(obj.front());
+
+// function coffee() {
+//   this.name = "푸라푸치노";
+//   this.price = 6500;
+
+//   return {
+//     front: () => {
+//       return `${this.name}의 가격은 ${this.price}원입니다.`;
+//     },
+//   };
+// }
+
+// const coffee = coffee();
+// console.log(coffee.front());
+
+// // const obj2 = {
+// //   name: "라떼",
+// //   price: 4000,
+// //   front: () => {
+// //     return `${this.name}의 가격은 ${this.price}원입니다.`;
+// //   },
+// // };
+
+// console.log(obj2.front());
+
+// 생성자 함수에서는 이름을 지을 때 대문자로 시작해야 함.
+// 생성자 함수 : prototype, class
